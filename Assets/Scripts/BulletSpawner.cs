@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,14 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField]
     private float _scaleMultiplier = 0;
     private Bullet _bullet = null;
+    public Bullet Bullet
+    {
+        get => _bullet;
+    }
     private bool _isShooting = false;
 
     private Vector2 _bulletSpawnPosition = Vector2.zero;
-
+    public event EventHandler BulletFiredEvent = null;
 
     void Start()
     {
@@ -52,6 +57,12 @@ public class BulletSpawner : MonoBehaviour
         if(Input.GetMouseButtonUp(0))
         {
             _isShooting = false;
+
+            EventHandler bulletFiredEvent = BulletFiredEvent;
+            if(bulletFiredEvent != null)
+            {
+                bulletFiredEvent.Invoke(this, null);
+            }
         }
     }
 

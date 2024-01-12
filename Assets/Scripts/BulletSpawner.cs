@@ -15,6 +15,8 @@ public class BulletSpawner : MonoBehaviour
     private Transform _target = null;
     [SerializeField]
     private float _scaleMultiplier = 0;
+    [SerializeField]
+    private CollisionManager _collisionManager = null;
     private Bullet _bullet = null;
     public Bullet Bullet
     {
@@ -37,15 +39,19 @@ public class BulletSpawner : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            if (!_bulletPrefab) return;
-            if (!_bulletContainer) return;
-            if (!_player) return;
+            {
+                if (!_bulletPrefab) return;
+                if (!_bulletContainer) return;
+                if (!_player) return;
+            }
 
             if(!_isShooting)
             {
                 _isShooting = true;
                 _bullet = Instantiate(_bulletPrefab, _bulletContainer.transform).GetComponent<Bullet>();
                 _bullet.gameObject.transform.localPosition = _bulletSpawnPosition;
+
+                _collisionManager.Subscribe(_bullet);
             }
             else
             {
@@ -59,10 +65,7 @@ public class BulletSpawner : MonoBehaviour
             _isShooting = false;
 
             EventHandler bulletFiredEvent = BulletFiredEvent;
-            if(bulletFiredEvent != null)
-            {
-                bulletFiredEvent.Invoke(this, null);
-            }
+            bulletFiredEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 

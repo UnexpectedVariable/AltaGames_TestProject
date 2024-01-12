@@ -21,13 +21,11 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Start()
     {
-        if (!_isSpawnerActive) return;
-        if (_obstaclePrefab == null) return;
-        if (_obstacleContainerTransform == null) return;
-        /*else
         {
-            Debug.Log($"Obstacle container dimensions: width={_obstacleContainerTransform.rect.width}, height={_obstacleContainerTransform.rect.height}");
-        }*/
+            if (!_isSpawnerActive) return;
+            if (_obstaclePrefab == null) return;
+            if (_obstacleContainerTransform == null) return;
+        }
 
         System.Random rng = null;
         if (_isSeedRandomized)

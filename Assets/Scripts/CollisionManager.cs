@@ -29,7 +29,7 @@ public class CollisionManager : MonoBehaviour
     private IEnumerator CollisionCoroutine(CollisionEventArgs args)
     {
         //stop the bullet and prevent further interaction
-        args.Bullet.Rigidbody2D. bodyType = RigidbodyType2D.Static;
+        args.Bullet.Rigidbody2D.bodyType = RigidbodyType2D.Static;
         args.Bullet.CircleCollider2D.enabled = false;
 
         //simulate explosion

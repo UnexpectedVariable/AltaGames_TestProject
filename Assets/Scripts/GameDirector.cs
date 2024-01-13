@@ -8,9 +8,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private BulletPool _bulletPool = null;
     [SerializeField]
-    private GameObject _player = null;
+    private Player _player = null;
     [SerializeField]
-    private GameObject _target = null;
+    private Target _target = null;
 
     public event EventHandler PathClearEvent = null;
     public event EventHandler LossEvent = null;
@@ -24,6 +24,7 @@ public class GameDirector : MonoBehaviour
         }
 
         _bulletPool.BulletReleasedEvent += HandleBulletRelease;
+        _target.TargetReachedEvent += HandleBulletRelease;
     }
 
     private void HandleBulletRelease(object sender, EventArgs args)
@@ -38,5 +39,12 @@ public class GameDirector : MonoBehaviour
             PathClearEvent?.Invoke(this, EventArgs.Empty);
         }
         else Debug.Log("Player path is not clear!");
+    }
+
+    private void HandleTargetReached(object sender, EventArgs args)
+    {
+        _player.Rigidbody2D.bodyType = RigidbodyType2D.Static;
+        _player.CircleCollider2D.enabled = false;
+        Debug.Log("Target reached event handled!");
     }
 }

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff0ed235d271b347a65befd989df457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleCount: 100
+  _obstacleCount: 25
   _isSpawnerActive: 1
   _isSeedRandomized: 0
   _obstaclePrefab: {fileID: 408717466989440427, guid: ded340e6c6819e1498ecfe133b97a433, type: 3}
@@ -231,8 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPool: {fileID: 2101037805}
-  _player: {fileID: 680067597}
-  _target: {fileID: 528364168}
+  _player: {fileID: 680067600}
+  _target: {fileID: 528364170}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528364169}
+  - component: {fileID: 528364170}
   m_Layer: 8
   m_Name: Exit Door Container
   m_TagString: Untagged
@@ -361,6 +362,20 @@ RectTransform:
   m_AnchoredPosition: {x: -130, y: -180}
   m_SizeDelta: {x: 1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &528364170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528364168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396f224b8992f4641a0a254f4f319f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxCollider2D: {fileID: 1481769527}
+  _doorSprite: {fileID: 1481769526}
 --- !u!1 &641506417
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +554,7 @@ GameObject:
   - component: {fileID: 680067601}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

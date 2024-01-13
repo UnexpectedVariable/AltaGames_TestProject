@@ -15,8 +15,10 @@ public class BulletSpawner : MonoBehaviour
     private Transform _target = null;
     [SerializeField]
     private float _scaleMultiplier = 0;
+    /*[SerializeField]
+    private CollisionManager _collisionManager = null;*/
     [SerializeField]
-    private CollisionManager _collisionManager = null;
+    private BulletPool _bulletPool = null;
     private Bullet _bullet = null;
     public Bullet Bullet
     {
@@ -24,14 +26,10 @@ public class BulletSpawner : MonoBehaviour
     }
     private bool _isShooting = false;
 
-    private Vector2 _bulletSpawnPosition = Vector2.zero;
     public event EventHandler BulletFiredEvent = null;
 
     void Start()
     {
-        Vector3 playerToTargetVec = _target.localPosition - _player.transform.localPosition;
-        _bulletSpawnPosition = _player.transform.localPosition + _player.transform.localScale.x * 0.5f * playerToTargetVec.normalized;
-
         Debug.DrawLine(_target.position, _player.transform.position, Color.red, 60f);
     }
 
@@ -43,15 +41,21 @@ public class BulletSpawner : MonoBehaviour
                 if (!_bulletPrefab) return;
                 if (!_bulletContainer) return;
                 if (!_player) return;
+                //if (!_collisionManager) return;
+                if (!_bulletPool) return;
             }
 
             if(!_isShooting)
             {
                 _isShooting = true;
-                _bullet = Instantiate(_bulletPrefab, _bulletContainer.transform).GetComponent<Bullet>();
-                _bullet.gameObject.transform.localPosition = _bulletSpawnPosition;
+                //bullet = Instantiate(_bulletPrefab, _bulletContainer.transform).GetComponent<Bullet>();
+                _bullet = _bulletPool.Get();
+                _bullet.gameObject.SetActive(true);
+                Vector3 playerToTargetVec = _target.localPosition - _player.transform.localPosition;
+                Vector2 bulletSpawnPosition = _player.transform.localPosition + _player.transform.localScale.x * 0.5f * playerToTargetVec.normalized;
+                _bullet.gameObject.transform.localPosition = bulletSpawnPosition;
 
-                _collisionManager.Subscribe(_bullet);
+                //_collisionManager.Subscribe(_bullet);
             }
             else
             {

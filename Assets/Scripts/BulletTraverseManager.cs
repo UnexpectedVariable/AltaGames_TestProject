@@ -7,8 +7,8 @@ public class BulletTraverseManager : MonoBehaviour
 {
     [SerializeField]
     private float _traverseForce = 1f;
-    [SerializeField]
-    private Player _player = null;
+    /*[SerializeField]
+    private Player _player = null;*/
     [SerializeField]
     private Transform _target = null;
     private Bullet _bullet = null;
@@ -17,6 +17,8 @@ public class BulletTraverseManager : MonoBehaviour
 
     void Start()
     {
+        if (!Spawner) return;
+
         Spawner.BulletFiredEvent += HandleFireEvent;
     }
 

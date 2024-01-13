@@ -564,7 +564,7 @@ MonoBehaviour:
   _player: {fileID: 680067600}
   _target: {fileID: 528364169}
   _scaleMultiplier: 0.5
-  _collisionManager: {fileID: 1646358184}
+  _bulletPool: {fileID: 2101037805}
 --- !u!114 &688399303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _traverseForce: 40
-  _player: {fileID: 680067600}
   _target: {fileID: 528364169}
   Spawner: {fileID: 688399302}
 --- !u!1 &853395086
@@ -1006,8 +1005,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101037804}
+  - component: {fileID: 2101037805}
   m_Layer: 5
-  m_Name: BulletContainer
+  m_Name: BulletPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1032,6 +1032,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2101037805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101037803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376f5d15fb6c1914a86b661c87b00549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletCount: 5
+  _isAutoExpand: 1
+  _bulletPrefab: {fileID: 5089345291145471294, guid: e1d3acf2eddc39444b7203e6f7e56a20, type: 3}
+  _collisionManager: {fileID: 1646358184}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

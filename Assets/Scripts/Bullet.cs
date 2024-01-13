@@ -34,4 +34,9 @@ public class Bullet : MonoBehaviour
         EventHandler<CollisionEventArgs> handler = CollisionEvent;
         handler?.Invoke(handler, args);
     }
+
+    public void Reset()
+    {
+        _transform.localScale = Vector3.zero;
+    }
 }

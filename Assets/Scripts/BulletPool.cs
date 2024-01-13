@@ -18,6 +18,7 @@ public class BulletPool : MonoBehaviour
 
     private MonoPoolList<Bullet> _bulletList = null;
 
+    public event EventHandler BulletReleasedEvent = null;
     private void Start()
     {
         _bulletList = new MonoPoolList<Bullet>(_bulletPrefab, this.gameObject, _bulletCount, _isAutoExpand);
@@ -59,5 +60,6 @@ public class BulletPool : MonoBehaviour
     private void HandleBulletDestruction(object sender, CollisionEventArgs args)
     {
         Release(args.Bullet);
+        BulletReleasedEvent?.Invoke(this, EventArgs.Empty);
     }
 }

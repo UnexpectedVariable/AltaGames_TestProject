@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private CircleCollider2D _circleCollider2D = null;
+    [SerializeField]
+    private Rigidbody2D _rigidbody2D = null;
     private Transform _transform = null;
     private Vector3 Scale
     {
@@ -11,11 +15,20 @@ public class Player : MonoBehaviour
         set
         {
             _transform.localScale = value;
-            if(_transform.localScale.magnitude <= 0) //hcange 0 to minimal value
+            if(_transform.localScale.magnitude <= 0) //change 0 to minimal value
             {
                 //lose callback
             }
         }
+    }
+
+    public CircleCollider2D CircleCollider2D
+    {
+        get => _circleCollider2D;
+    }
+    public Rigidbody2D Rigidbody2D
+    {
+        get => _rigidbody2D;
     }
 
     void Start()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778555691845311763}
   - component: {fileID: 1461037639172020933}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Blimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5089345291145471294}
   - component: {fileID: 5841781182085858056}
   - component: {fileID: 4971866857106986169}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Bullet Prefab
   m_TagString: Bullet
   m_Icon: {fileID: 0}

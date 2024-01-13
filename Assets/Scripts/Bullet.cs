@@ -8,11 +8,17 @@ public class Bullet : MonoBehaviour
     private Transform _transform = null;
     [SerializeField]
     private Rigidbody2D _rigidbody2D = null;
+    [SerializeField]
+    private CircleCollider2D _circleCollider2D = null;
 
     public event EventHandler<CollisionEventArgs> CollisionEvent = null;
     public Rigidbody2D Rigidbody2D
     {
         get => _rigidbody2D;
+    }
+    public CircleCollider2D CircleCollider2D 
+    { 
+        get => _circleCollider2D; 
     }
 
     void Start()
@@ -38,5 +44,17 @@ public class Bullet : MonoBehaviour
     public void Reset()
     {
         _transform.localScale = Vector3.zero;
+        Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        CircleCollider2D.enabled = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Trigger stay detected");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger enter detected");
     }
 }

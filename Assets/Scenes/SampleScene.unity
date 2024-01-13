@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff0ed235d271b347a65befd989df457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleCount: 25
+  _obstacleCount: 100
   _isSpawnerActive: 1
   _isSeedRandomized: 0
   _obstaclePrefab: {fileID: 408717466989440427, guid: ded340e6c6819e1498ecfe133b97a433, type: 3}
@@ -413,6 +413,101 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &669941848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669941849}
+  - component: {fileID: 669941850}
+  - component: {fileID: 669941851}
+  m_Layer: 5
+  m_Name: ScreenBoundingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &669941849
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669941848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1619191435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &669941850
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669941848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &669941851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669941848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5709899e1813e8439fbe0702b02fc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 669941850}
 --- !u!1 &680067597
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21f5299de8b420499921891eb609891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traverseForce: 40
+  _traverseForce: 80
   _target: {fileID: 528364169}
   Spawner: {fileID: 688399302}
 --- !u!1 &853395086
@@ -802,6 +897,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 669941849}
   - {fileID: 680067598}
   - {fileID: 1958495139}
   - {fileID: 528364169}
@@ -921,6 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24018c926a1f00e4a9ba4ee4f0840ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosionMultiplier: 2.5
 --- !u!1 &1958495138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1145,7 @@ MonoBehaviour:
   _isAutoExpand: 1
   _bulletPrefab: {fileID: 5089345291145471294, guid: e1d3acf2eddc39444b7203e6f7e56a20, type: 3}
   _collisionManager: {fileID: 1646358184}
+  _screenBoundingTrigger: {fileID: 669941851}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

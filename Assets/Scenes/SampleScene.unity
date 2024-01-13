@@ -627,8 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fb9f51f0c2d134ca59d3ae596ee861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _circleCollider2D: {fileID: 0}
-  _rigidbody2D: {fileID: 0}
+  _circleCollider2D: {fileID: 680067602}
+  _rigidbody2D: {fileID: 680067601}
 --- !u!50 &680067601
 Rigidbody2D:
   serializedVersion: 4

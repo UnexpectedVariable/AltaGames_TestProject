@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
@@ -45,9 +43,9 @@ public class BulletSpawner : MonoBehaviour
     {
         if (!_isShootingAllowed) return;
 
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
-            if(!_isShooting)
+            if (!_isShooting)
             {
                 _isShooting = true;
                 _bullet = _bulletPool.Get();
@@ -63,7 +61,7 @@ public class BulletSpawner : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             _isShooting = false;
 

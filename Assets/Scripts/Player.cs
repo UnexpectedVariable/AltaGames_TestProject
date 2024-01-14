@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -65,7 +62,7 @@ public class Player : MonoBehaviour
 
         if (!_visualizeReachingCriticalScale) return;
 
-        if(_scaleColorShiftVec ==  Vector3.zero)
+        if (_scaleColorShiftVec == Vector3.zero)
         {
             CalculateColorShiftVec(step);
         }

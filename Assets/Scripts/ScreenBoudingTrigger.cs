@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Android.Types;
 using UnityEngine;
 
 public class ScreenBoundingTrigger : MonoBehaviour

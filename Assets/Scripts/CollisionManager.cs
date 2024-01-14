@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
@@ -11,7 +10,7 @@ public class CollisionManager : MonoBehaviour
 
     public void Subscribe(Bullet bullet)
     {
-        if(!bullet) return;
+        if (!bullet) return;
 
         bullet.CollisionEvent += HandleBulletCollision;
     }
@@ -23,7 +22,7 @@ public class CollisionManager : MonoBehaviour
         //destroy bullet
         //destroy obstacles
         StartCoroutine(CollisionCoroutine(args));
-        
+
     }
 
     private IEnumerator CollisionCoroutine(BulletEventArgs args)
@@ -38,7 +37,7 @@ public class CollisionManager : MonoBehaviour
         var hitObstacles = Physics2D.OverlapCircleAll(args.Bullet.transform.position, args.Bullet.transform.lossyScale.x * 0.5f);
 
         //infect obstacles
-        foreach(var hit in hitObstacles)
+        foreach (var hit in hitObstacles)
         {
             if (hit.gameObject.tag == "Obstacle")
             {

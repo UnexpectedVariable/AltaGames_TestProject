@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +12,7 @@ public class MonoPoolList<T> where T : MonoBehaviour
     }
 
     private bool _isAutoExpand = false;
-    public  bool IsAutoExpand
+    public bool IsAutoExpand
     {
         get => _isAutoExpand;
         set => _isAutoExpand = value;
@@ -26,7 +24,7 @@ public class MonoPoolList<T> where T : MonoBehaviour
         _parent = parent;
         IsAutoExpand = isAutoExpand;
 
-        if(count > 0) InitializePool(count);
+        if (count > 0) InitializePool(count);
     }
 
     private void InitializePool(int count)
@@ -76,7 +74,7 @@ public class MonoPoolList<T> where T : MonoBehaviour
     {
         foreach (T obj in _pool)
         {
-            if(!obj.gameObject.activeSelf) return obj;
+            if (!obj.gameObject.activeSelf) return obj;
         }
 
         return null;

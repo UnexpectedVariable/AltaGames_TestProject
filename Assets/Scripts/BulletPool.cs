@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletPool : MonoBehaviour
@@ -46,14 +44,14 @@ public class BulletPool : MonoBehaviour
 
     public Bullet Get()
     {
-        if(_bulletList.Get(out Bullet instance))
+        if (_bulletList.Get(out Bullet instance))
         {
             return instance;
         }
         InitializePooledBullet(instance);
         return instance;
     }
-    
+
     public void Release(Bullet bullet)
     {
         bullet.Reset();

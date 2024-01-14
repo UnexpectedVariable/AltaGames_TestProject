@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
@@ -37,7 +33,7 @@ public class ObstacleSpawner : MonoBehaviour
             rng = new System.Random(_seed);
         }
 
-        for(int i = 0; i < _obstacleCount; i++)
+        for (int i = 0; i < _obstacleCount; i++)
         {
             Vector3 position = Vector2.zero;
             int halfWidth = (int)(_obstacleContainerTransform.rect.width * 0.5);

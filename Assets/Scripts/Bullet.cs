@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -16,15 +14,15 @@ public class Bullet : MonoBehaviour
     {
         get => _rigidbody2D;
     }
-    public CircleCollider2D CircleCollider2D 
-    { 
-        get => _circleCollider2D; 
+    public CircleCollider2D CircleCollider2D
+    {
+        get => _circleCollider2D;
     }
 
     void Start()
     {
         _transform = this.gameObject.transform;
-        _transform.localScale = Vector3.zero;   
+        _transform.localScale = Vector3.zero;
     }
 
     public void Enlarge2D(float multiplier)

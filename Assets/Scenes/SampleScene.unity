@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff0ed235d271b347a65befd989df457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleCount: 25
+  _obstacleCount: 50
   _isSpawnerActive: 1
-  _isSeedRandomized: 0
+  _isSeedRandomized: 1
   _obstaclePrefab: {fileID: 408717466989440427, guid: ded340e6c6819e1498ecfe133b97a433, type: 3}
   _obstacleContainerTransform: {fileID: 853395087}
 --- !u!1 &383752006
@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24018c926a1f00e4a9ba4ee4f0840ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionMultiplier: 2.5
+  _explosionMultiplier: 3
 --- !u!1 &1733242559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1663,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1 &1958495138
 GameObject:

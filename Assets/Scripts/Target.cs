@@ -39,5 +39,6 @@ public class Target : MonoBehaviour
         }
         TargetReachedEvent?.Invoke(this, EventArgs.Empty);
         _doorSprite.color = _closedColor;
+        _doorSprite.sortingOrder = 2;
     }
 }

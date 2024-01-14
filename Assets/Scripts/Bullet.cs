@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private CircleCollider2D _circleCollider2D = null;
 
-    public event EventHandler<CollisionEventArgs> CollisionEvent = null;
+    public event EventHandler<BulletEventArgs> CollisionEvent = null;
     public Rigidbody2D Rigidbody2D
     {
         get => _rigidbody2D;
@@ -34,10 +34,10 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        CollisionEventArgs args = new CollisionEventArgs();
+        BulletEventArgs args = new BulletEventArgs();
         args.Bullet = this;
 
-        EventHandler<CollisionEventArgs> handler = CollisionEvent;
+        EventHandler<BulletEventArgs> handler = CollisionEvent;
         handler?.Invoke(handler, args);
     }
 

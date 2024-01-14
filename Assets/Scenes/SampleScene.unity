@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPool: {fileID: 2101037805}
+  _bulletSpawner: {fileID: 688399302}
   _player: {fileID: 1975160228232260743}
   _target: {fileID: 1481769528}
   _endgameCanvas: {fileID: 1752704110}
@@ -820,8 +821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67021d45723d9f46ac00a8af510fb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8206459980444641657, guid: e1d3acf2eddc39444b7203e6f7e56a20, type: 3}
-  _bulletContainer: {fileID: 2101037803}
   _player: {fileID: 1975160228232260743}
   _target: {fileID: 528364169}
   _scaleChangeValue: 0.5
@@ -1228,7 +1227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396f224b8992f4641a0a254f4f319f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxCollider2D: {fileID: 1481769527}
   _doorSprite: {fileID: 1481769526}
   _doorTransform: {fileID: 528364169}
 --- !u!1 &1619191434
@@ -1795,6 +1793,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5089345291145471294, guid: e1d3acf2eddc39444b7203e6f7e56a20, type: 3}
   _collisionManager: {fileID: 1646358184}
   _screenBoundingTrigger: {fileID: 669941851}
+  _bulletSpawner: {fileID: 688399302}
 --- !u!114 &1975160228232260743
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class BulletPool : MonoBehaviour
     private CollisionManager _collisionManager = null;
     [SerializeField]
     private ScreenBoundingTrigger _screenBoundingTrigger = null;
+    [SerializeField]
+    private BulletSpawner _bulletSpawner = null;
 
     private MonoPoolList<Bullet> _bulletList = null;
 
@@ -24,6 +26,7 @@ public class BulletPool : MonoBehaviour
         _bulletList = new MonoPoolList<Bullet>(_bulletPrefab, this.gameObject, _bulletCount, _isAutoExpand);
         _collisionManager.BulletDestroyedEvent += HandleBulletDestruction;
         _screenBoundingTrigger.BulletOffscreenEvent += HandleBulletDestruction;
+        _bulletSpawner.BulletDestroyedEvent += HandleBulletDestruction;
 
         InitializePooledBullets();
     }
@@ -57,7 +60,7 @@ public class BulletPool : MonoBehaviour
         _bulletList.Release(bullet);
     }
 
-    private void HandleBulletDestruction(object sender, CollisionEventArgs args)
+    private void HandleBulletDestruction(object sender, BulletEventArgs args)
     {
         Release(args.Bullet);
         BulletReleasedEvent?.Invoke(this, EventArgs.Empty);

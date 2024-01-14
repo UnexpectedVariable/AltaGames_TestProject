@@ -7,7 +7,7 @@ public class CollisionManager : MonoBehaviour
 {
     [SerializeField]
     private float _explosionMultiplier = 1f;
-    public event EventHandler<CollisionEventArgs> BulletDestroyedEvent = null;
+    public event EventHandler<BulletEventArgs> BulletDestroyedEvent = null;
 
     public void Subscribe(Bullet bullet)
     {
@@ -16,7 +16,7 @@ public class CollisionManager : MonoBehaviour
         bullet.CollisionEvent += HandleBulletCollision;
     }
 
-    public void HandleBulletCollision(object sender, CollisionEventArgs args)
+    public void HandleBulletCollision(object sender, BulletEventArgs args)
     {
         Debug.Log("Bullet collision event invoked");
         //make an explosion
@@ -26,7 +26,7 @@ public class CollisionManager : MonoBehaviour
         
     }
 
-    private IEnumerator CollisionCoroutine(CollisionEventArgs args)
+    private IEnumerator CollisionCoroutine(BulletEventArgs args)
     {
         //stop the bullet and prevent further interaction
         args.Bullet.Rigidbody2D.bodyType = RigidbodyType2D.Static;

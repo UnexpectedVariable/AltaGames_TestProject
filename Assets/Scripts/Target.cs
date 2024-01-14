@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 public class Target : MonoBehaviour
 {
     [SerializeField]
-    private BoxCollider2D _boxCollider2D = null;
-    [SerializeField]
     private SpriteRenderer _doorSprite = null;
     [SerializeField]
     private Transform _doorTransform = null;

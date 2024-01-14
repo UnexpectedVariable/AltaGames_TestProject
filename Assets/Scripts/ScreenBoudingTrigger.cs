@@ -10,7 +10,7 @@ public class ScreenBoundingTrigger : MonoBehaviour
     private BoxCollider2D boxCollider2D = null;
     private RectTransform _rectTransform = null;
 
-    public event EventHandler<CollisionEventArgs> BulletOffscreenEvent = null;
+    public event EventHandler<BulletEventArgs> BulletOffscreenEvent = null;
     private void Start()
     {
         _rectTransform = gameObject.GetComponent<RectTransform>();
@@ -21,7 +21,7 @@ public class ScreenBoundingTrigger : MonoBehaviour
     {
         if (collision.tag != "Bullet") return;
 
-        CollisionEventArgs args = new CollisionEventArgs();
+        BulletEventArgs args = new BulletEventArgs();
         args.Bullet = collision.gameObject.GetComponent<Bullet>();
 
         if (IsScreenBound(args.Bullet.transform.localPosition)) return;

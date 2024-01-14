@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -11,9 +12,14 @@ public class GameDirector : MonoBehaviour
     private Player _player = null;
     [SerializeField]
     private Target _target = null;
-
+    [SerializeField]
+    private GameObject _endgameCanvas = null;
+    [SerializeField]
+    private EndgameScreenManager _endgameScreenManager = null;
     public event EventHandler PathClearEvent = null;
     public event EventHandler LossEvent = null;
+
+    private string _victoryText = "You won!";
 
     private void Start()
     {
@@ -21,10 +27,13 @@ public class GameDirector : MonoBehaviour
             if (!_bulletPool) return;
             if (!_player) return;
             if (!_target) return;
+            if (!_endgameCanvas) return;
+            if (!_endgameScreenManager) return;
         }
 
         _bulletPool.BulletReleasedEvent += HandleBulletRelease;
-        _target.TargetReachedEvent += HandleBulletRelease;
+        _target.TargetReachedEvent += HandleTargetReached;
+        _endgameScreenManager.ReplayEvent += HandleReplay;
     }
 
     private void HandleBulletRelease(object sender, EventArgs args)
@@ -45,6 +54,17 @@ public class GameDirector : MonoBehaviour
     {
         _player.Rigidbody2D.bodyType = RigidbodyType2D.Static;
         _player.CircleCollider2D.enabled = false;
-        Debug.Log("Target reached event handled!");
+
+        _endgameCanvas?.SetActive(true);
+        _endgameScreenManager.Text = _victoryText;
+        //Debug.Log("Target reached event handled!");
+    }
+
+    private void HandleReplay(object sender, EventArgs args)
+    {
+        //_endgameCanvas?.SetActive(false);
+        
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }

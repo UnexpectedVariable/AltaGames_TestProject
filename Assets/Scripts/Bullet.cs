@@ -47,14 +47,4 @@ public class Bullet : MonoBehaviour
         Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         CircleCollider2D.enabled = true;
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Trigger stay detected");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Trigger enter detected");
-    }
 }

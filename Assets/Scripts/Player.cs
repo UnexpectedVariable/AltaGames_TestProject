@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
         set
         {
             _transform.localScale = value;
-            if(_transform.localScale.magnitude <= 0) //change 0 to minimal value
+            if (_transform.localScale.magnitude <= 0) //change 0 to minimal value
             {
                 //lose callback
             }
@@ -39,5 +40,11 @@ public class Player : MonoBehaviour
     public void Shrink2D(float multiplier)
     {
         Scale -= new Vector3(multiplier, multiplier);
+    }
+
+    public void Reset()
+    {
+        Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        CircleCollider2D.enabled = true;
     }
 }

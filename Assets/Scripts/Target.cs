@@ -10,6 +10,8 @@ public class Target : MonoBehaviour
     private BoxCollider2D _boxCollider2D = null;
     [SerializeField]
     private SpriteRenderer _doorSprite = null;
+    [SerializeField]
+    private Transform _doorTransform = null;
     private Color _closedColor = Color.black;
 
     public event EventHandler TargetReachedEvent = null;
@@ -24,16 +26,20 @@ public class Target : MonoBehaviour
         if (collision.tag != "Player") return;
 
         _doorSprite.color = Color.white;
-        StartCoroutine(TargetReachedCoroutine(collision.transform));
+        StartCoroutine(IsTargetReachedCoroutine(collision.transform));
 
         Debug.Log("Player reached the target!");
     }
 
-    private IEnumerator TargetReachedCoroutine(Transform player)
+    private IEnumerator IsTargetReachedCoroutine(Transform player)
     {
-        while((player.localPosition - transform.localPosition).magnitude > 1f)
+        Vector3 playerToTargetVector = _doorTransform.position - player.position;
+        Vector3 normalized = playerToTargetVector.normalized;
+        float margin = 0.1f;
+        while ((playerToTargetVector.normalized - normalized).sqrMagnitude < margin)
         {
-            yield return new WaitForSeconds(0.05f);
+            playerToTargetVector = _doorTransform.position - player.position;
+            yield return new WaitForSeconds(0.25f);
         }
         TargetReachedEvent?.Invoke(this, EventArgs.Empty);
         _doorSprite.color = _closedColor;

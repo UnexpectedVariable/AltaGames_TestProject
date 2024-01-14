@@ -74,6 +74,4 @@ public class BulletSpawner : MonoBehaviour
             bulletFiredEvent?.Invoke(this, EventArgs.Empty);
         }
     }
-
-
 }

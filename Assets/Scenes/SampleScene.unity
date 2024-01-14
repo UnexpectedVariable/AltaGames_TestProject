@@ -1807,10 +1807,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fb9f51f0c2d134ca59d3ae596ee861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 7964930931540494706}
   _circleCollider2D: {fileID: 5968074433837211835}
   _rigidbody2D: {fileID: 2985059251732591477}
   _criticalScaleMultiplier: 0.1
   _visualizeReachingCriticalScale: 1
+  _criticalScaleColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!50 &2985059251732591477
 Rigidbody2D:
   serializedVersion: 4

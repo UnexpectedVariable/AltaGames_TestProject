@@ -14,7 +14,9 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField]
     private Transform _target = null;
     [SerializeField]
-    private float _scaleMultiplier = 0;
+    private float _scaleChangeValue = 0;
+    [SerializeField]
+    private float _playerScaleChangeMultiplier = 1;
     /*[SerializeField]
     private CollisionManager _collisionManager = null;*/
     [SerializeField]
@@ -59,8 +61,8 @@ public class BulletSpawner : MonoBehaviour
             }
             else
             {
-                _bullet.Enlarge2D(_scaleMultiplier);
-                _player.Shrink2D(_scaleMultiplier);
+                _bullet.Enlarge2D(_scaleChangeValue);
+                _player.Shrink2D(_scaleChangeValue * _playerScaleChangeMultiplier);
             }
         }
 

@@ -20,6 +20,7 @@ public class GameDirector : MonoBehaviour
     public event EventHandler LossEvent = null;
 
     private string _victoryText = "You won!";
+    private string _loseText = "You lost!";
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class GameDirector : MonoBehaviour
         _bulletPool.BulletReleasedEvent += HandleBulletRelease;
         _target.TargetReachedEvent += HandleTargetReached;
         _endgameScreenManager.ReplayEvent += HandleReplay;
+        _player.CriticalScaleReachedEvent += HandleCriticalScaleReached;
     }
 
     private void HandleBulletRelease(object sender, EventArgs args)
@@ -62,9 +64,12 @@ public class GameDirector : MonoBehaviour
 
     private void HandleReplay(object sender, EventArgs args)
     {
-        //_endgameCanvas?.SetActive(false);
-        
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+    private void HandleCriticalScaleReached(object sender, EventArgs args)
+    {
+        _endgameCanvas?.SetActive(true);
+        _endgameScreenManager.Text = _loseText;
     }
 }
